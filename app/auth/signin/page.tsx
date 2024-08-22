@@ -1,47 +1,64 @@
 import Head from "next/head";
 import Image from "next/image"; // Import Next.js Image component
+// import { Inter } from 'next/font/google'
 
 export default function SignIn() {
   return (
     <div className="flex h-screen bg-gray-700">
-      <Head flex justify-start>
-        <title justify-start>Sign In</title>
+      <Head>
+        <title>Sign In</title>
       </Head>
 
       {/* Left side with the promotional image and text */}
-      <div className="hidden lg:flex items-center justify-center w-1/2 bg-blue-600">
-        <div className="text-center p-8">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Generate detailed reports with just one click
-          </h2>
-          <Image
-            src="/login.png" // Use the uploaded image
-            alt="Report"
-            width={300}
-            height={300}
-            className="mx-auto flex justify-right"
-          />
-        </div>
-      </div>
+      <div className="hidden lg:flex flex-col items-start justify-between w-1/2 mt-6 ml-8 mb-6 rounded-2xl p-12 relative shadow-lg" style={{ background: 'linear-gradient(#4356cd, #4258ab)' }}>
+      <div className="rounded-[20px] p-10 bg-[#3949AB] relative h-full w-full">
+
+{/* Logo */}
+<div className="flex items-center bg-white rounded-full p-3 shadow-md absolute top-6 left-8">
+  <Image src="/base.png" alt="Base" width={80} height={80} />
+</div>
+
+{/* Content */}
+<div className="flex flex-col items-start justify-center mt-40">
+  <h2 className="text-4xl font-bold text-white mb-8 max-w-[400px]">
+    Generate detailed reports with just one click
+  </h2>
+</div>
+
+{/* Image aligned to bottom-right corner */}
+<div className="absolute bottom-0 right-0">
+  <Image
+    src="/login.png"
+    alt=""
+    height={300}
+    width={300}
+    className="object-contain"
+  />
+</div>
+
+</div>
+
+</div>
+
 
       {/* Right side with the sign-in form */}
-      <div className="flex flex-col items-start justify-center w-full max-w-md mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto p-8 bg-gray-800 rounded-lg shadow-lg">
         <h1 className="text-3xl font-semibold text-white mb-6">Sign In</h1>
 
-        <div className="flex flex-col justify- w-full">
+        <div className="flex flex-col w-full">
           <div className="flex flex-row w-full space-x-4 mb-6">
-            <button className="bg-black text-sm text-gray-400 py-2 px-4 rounded-[10px] flex items-center justify-center">
+            <button className="bg-black text-sm text-gray-400 py-2 px-4 rounded-lg flex items-center justify-center w-full">
               <img src="/google.png" alt="Google" className="w-5 h-5 mr-2" />
-              Sign in with Google
+              Signin with Google
             </button>
 
-            <button className="bg-black text-sm text-gray-400 py-2 px-4 rounded-[10px] flex items-center justify-center">
+            <button className="bg-black text-sm text-gray-400 py-2 px-4 rounded-lg flex items-center justify-center w-full">
               <img src="/apple.png" alt="Apple" className="w-5 h-5 mr-2" />
-              Sign in with Apple
+              SignIn with Apple
             </button>
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-4 w-full">
             <div>
               <label className="block text-sm text-white">Email address</label>
               <input
@@ -81,7 +98,7 @@ export default function SignIn() {
           </div>
 
           {/* Social media icons */}
-          <div className="pt-10 mt-6 flex justify-center space-x-4">
+          <div className="pt-6 mt-6 flex justify-center space-x-4">
             <a href="#" className="text-gray-400 hover:text-white">
               <img src="/github.png" alt="GitHub" className="w-6 h-6" />
             </a>
