@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import { UploadIcon } from '@heroicons/react/outline';
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -25,13 +25,17 @@ export default function UploadPage() {
     <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       
       {/* Sidebar */}
-      <aside className={`${isCollapsed ? "w-20" : "w-64"} ${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-5 transition-all duration-500`}>
+      <aside className={`${isCollapsed ? 'w-20' : 'w-64'} ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} p-5 transition-all duration-500`}>
         <div className="flex justify-between items-center mb-6">
-          {!isCollapsed && <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>Base</div>}
-          <button onClick={toggleSidebar}>
-            <img src="/sidebar.png" alt="Toggle" className="w-8 h-auto cursor-pointer" />
+          {!isCollapsed && (
+            <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              Base
+            </div>
+          )}
+          <button onClick={toggleSidebar} aria-label="Toggle Sidebar">
+            <img src="/sidebar.png" alt="Toggle Sidebar" className="w-8 h-auto cursor-pointer" />
           </button>
-          <button onClick={toggleDarkMode} className="ml-4">
+          <button onClick={toggleDarkMode} className="ml-4" aria-label="Toggle Dark Mode">
             <span className={`text-xl ${isDarkMode ? 'text-yellow-400' : 'text-gray-600'}`}>
               {isDarkMode ? '🌞' : '🌜'}
             </span>
@@ -87,15 +91,12 @@ export default function UploadPage() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        
-        {/* Navbar */}
-        <header className={`w-full pt-10 pl-10 text-${isDarkMode ? 'white' : 'black'} text-[30px]`}>
+      <main className="flex-1 flex flex-col">
+        <header className={`w-full pt-10 pl-10 text-${isDarkMode ? 'white' : 'black'} text-2xl`}>
           Upload CSV
         </header>
 
-        {/* Content Area */}
-        <main className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center">
           <div className={`rounded-lg p-10 shadow-lg w-full max-w-md ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'}`}>
             
             <div className={`border border-dashed ${isDarkMode ? 'border-gray-600' : 'border-gray-400'} rounded-lg p-6 flex flex-col items-center`}>
@@ -105,14 +106,11 @@ export default function UploadPage() {
                 className="hidden"
                 onChange={handleFileChange}
               />
-              <label
-                htmlFor="file-upload"
-                className="cursor-pointer"
-              >
+              <label htmlFor="file-upload" className="cursor-pointer">
                 <div className="flex flex-col items-center">
                   <Image src="/Excel.png" height={30} width={30} alt="Excel Icon" />
                   <p className={`mt-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-700'}`}>
-                    {file ? file.name : "Drop your excel sheet here or browse"}
+                    {file ? file.name : 'Drop your excel sheet here or browse'}
                   </p>
                 </div>
               </label>
@@ -123,9 +121,8 @@ export default function UploadPage() {
               Upload
             </button>
           </div>
-        </main>
-
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

@@ -6,7 +6,6 @@ const Upload = () => {
   const [selectedTags, setSelectedTags] = useState<{ [key: number]: string[] }>({});
   const [darkMode, setDarkMode] = useState(false);
 
-  // This effect will only run on the client-side
   useEffect(() => {
     const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     setDarkMode(isDarkMode);
@@ -24,7 +23,7 @@ const Upload = () => {
   };
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prevMode) => !prevMode);
   };
 
   useEffect(() => {
@@ -40,7 +39,7 @@ const Upload = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
-      <div className="bg-gray-900 dark:bg-gray-200 text-white dark:text-gray-900 p-4 md:p-8">
+      <div className={`bg-gray-900 dark:bg-gray-200 text-white dark:text-gray-900 p-4 md:p-8`}>
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl md:text-2xl font-semibold">Upload CSV</h2>
@@ -53,9 +52,13 @@ const Upload = () => {
           </div>
           <div className="bg-gray-800 dark:bg-gray-100 p-4 md:p-6 rounded-lg shadow-lg">
             <div className="border-dashed border-2 border-gray-600 dark:border-gray-400 p-6 md:p-10 text-center">
-              <p>Drop your excel sheet here or <span className="text-blue-500 dark:text-blue-700 cursor-pointer">browse</span></p>
+              <p>
+                Drop your Excel sheet here or <span className="text-blue-500 dark:text-blue-700 cursor-pointer">browse</span>
+              </p>
             </div>
-            <button className="mt-4 w-full py-2 bg-blue-600 dark:bg-blue-400 rounded-md text-white dark:text-gray-900">Upload</button>
+            <button className="mt-4 w-full py-2 bg-blue-600 dark:bg-blue-400 rounded-md text-white dark:text-gray-900">
+              Upload
+            </button>
           </div>
 
           <div className="mt-8">
