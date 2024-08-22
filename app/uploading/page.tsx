@@ -7,6 +7,11 @@ import { UploadIcon } from '@heroicons/react/outline';
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () =>{
+    setIsCollapsed(!isCollapsed);
+  }
 
   useEffect(() => {
     setIsClient(true); // Ensures this code runs only on the client side
@@ -24,50 +29,55 @@ export default function UploadPage() {
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
-      <aside className="w-64 bg-gray-800 p-5">
-        <div className="text-2xl font-bold mb-6">Base</div>
+      <aside className={`${isCollapsed ? "w-20" : "w-64"} bg-[#0D0D0D] p-5 transition-all duration-500`}>
+      <div className="flex justify-between items-center mb-6">
+          {!isCollapsed && <div className="text-2xl font-bold">Base</div>}
+          <button onClick={toggleSidebar}>
+            <img src="/sidebar.png" alt="Toggle" className="w-8 h-auto cursor-pointer" />
+          </button>
+        </div>
         <nav>
           <ul>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>🏠</span>
-                <span>Dashboard</span>
+                {!isCollapsed && <span>Dashboard</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>📤</span>
-                <span>Upload</span>
+                {!isCollapsed && <span>Upload</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>🧾</span>
-                <span>Invoice</span>
+                {!isCollapsed && <span>Invoice</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>📅</span>
-                <span>Schedule</span>
+                {!isCollapsed && <span>Schedule</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>📅</span>
-                <span>Calendar</span>
+                {!isCollapsed&&<span>Calendar</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>🔔</span>
-                <span>Notification</span>
+                {!isCollapsed&&<span>Notification</span>}
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="flex items-center space-x-2">
                 <span>⚙️</span>
-                <span>Settings</span>
+                {!isCollapsed&&<span>Settings</span>}
               </a>
             </li>
           </ul>
