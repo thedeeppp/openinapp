@@ -9,7 +9,7 @@ export default function Home() {
         <h3 className="text-xl mb-2">/uploaded</h3>
 
         <p className="text-lg mt-6">
-          This is because it's a frontend-only website and does not use backend routes to switch pages.
+          This is because it&apos;s a frontend-only website and does not use backend routes to switch pages.
         </p>
         <p className="text-lg mt-2">Sorry for the inconvenience.</p>
       </div>
