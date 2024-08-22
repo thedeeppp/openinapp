@@ -90,7 +90,7 @@ export default function SignIn() {
 
           <div className="mt-6">
             <p className="text-sm text-gray-400">
-              Don't have an account?{" "}
+              Don&apos;t have an account?&nbsp;
               <a href="#" className="text-indigo-500">
                 Register here
               </a>
